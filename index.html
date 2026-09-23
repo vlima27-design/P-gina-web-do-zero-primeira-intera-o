@@ -70,7 +70,7 @@
             </div>
         </article>
 
-        <!-- SEGUNDO POST (DUPLICADO) -->
+        <!-- SEGUNDO POST -->
         <article class="post">
             <img src="imagem.jpeg" alt="Jogador de futebol">
             <div>
@@ -84,33 +84,26 @@
         </article>
     </main>
 
-
     <script>
-        const botoes = document.querySelectorAll("button");
+        const botoes = document.querySelectorAll(".btn-like");
 
-        botoes.forEach(botao => {
+        botoes.forEach(function (botao) {
+            let curtiu = false;
             
-            
-            let curtiu = false
-            botão.addEventlistener("click",botaoClicado);   
-            function botaoClicado() {
+            botao.addEventListener("click", function botaoClicado() {
                 console.log("fui clicado");
-                let texto = botao.querySelector("span");
-                
-                if (curtiu === false) {
-                    texto.textContent++;
+                let contador = botao.querySelector(".contador");
+                let valorAtual = parseInt(contador.textContent, 10);
+
+                if (!curtiu) {
+                    contador.textContent = valorAtual + 1;
                     curtiu = true;
                 } else {
-                    texto.textContent--;
+                    contador.textContent = valorAtual - 1;
                     curtiu = false;
                 }
-            }
-        }
-        )
-
-
-
+            });
+        });
     </script>
-
 </body>
 </html>
